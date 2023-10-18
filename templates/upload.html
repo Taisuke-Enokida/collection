@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" media="screen and (min-width:768px)">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sp.css') }}" media="screen and (max-width:767px)">
+    <title>Upload Data</title>
+</head>
+<body>
+    <section class="upload">
+        <h1 class="upload-head">記念のお写真などございましたら<br>
+            お手数ですが、こちらからお願い致します
+        </h1>
+        <form method="POST" enctype="multipart/form-data" action="/upload">
+            <label for="name">お名前:</label>
+            <input type="text" name="name" required><br>
+    
+            <label for="email">メールアドレス:</label>
+            <input type="email" name="email" required><br>
+    
+            <label for="message">メッセージ:</label>
+            <textarea name="message" rows="4" required></textarea><br>
+    
+            <label for="image">画像選択:</label>
+            <input type="file" name="image" accept="image/*" required><br>
+    
+            <input type="submit" value="送信">
+        </form>
+    </section>
+</body>
+</html>

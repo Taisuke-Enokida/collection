@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" media="screen and (min-width:768px)">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sp.css') }}" media="screen and (max-width:767px)">
+    <title>投稿一覧</title>
+</head>
+<body>
+    <h1>投稿一覧</h1>
+    <section class="contents">
+        <ul>
+            {% for entry in data %}
+            <li>
+                <strong>お名前:</strong> {{ entry['Name'] }}<br>
+                <strong>メールアドレス:</strong> {{ entry['Email'] }}<br>
+                <strong>メッセージ:</strong> {{ entry['Message'] }}<br>
+                <strong>画像:</strong><br>
+                <img src="{{ url_for('static', filename='uploads/' + entry['Image']) }}" class="photo" alt="Uploaded Image"><br>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>
